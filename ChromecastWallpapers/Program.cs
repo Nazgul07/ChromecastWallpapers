@@ -48,6 +48,11 @@ namespace ChromecastWallpapers
 
 		private static void CreateDriver()
 		{
+			if(_driver != null)
+			{
+				_driver.Close();
+				_driver.Dispose();
+			}
 			var options = new ChromeOptions();
 			options.AddArguments("headless");
 			ChromeDriverService service = ChromeDriverService.CreateDefaultService(Environment.CurrentDirectory);
@@ -133,5 +138,4 @@ namespace ChromecastWallpapers
 			}
 		}
 	}
-	
 }
